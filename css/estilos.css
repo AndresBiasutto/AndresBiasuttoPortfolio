@@ -6,6 +6,7 @@
     --claro2: #075473;
     --resaltado: #BF441F;
     --blanco: #d1d1d1;
+    --negro: rgb(18, 18, 19);
     --transparente: transparent;
     --fuenteH: 'Staatliches', cursive;
     --fuenteP: 'Ubuntu', sans-serif;
@@ -77,11 +78,11 @@ i{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5rem;
+    height: 4rem;
     background-color: var(--transparente);
     width: 100%;
     position: fixed;
-    padding: 0 10rem;
+    padding: 0 10%;
     z-index: 10;
 }
 nav{
@@ -96,6 +97,46 @@ nav a{
 nav a:hover{
     transform: translate(0, -.1rem);
 }
+.menu-ham{
+    display: none;
+}
+.menu-ham i{
+    color: var(--claro);
+}
+/*media q nav*/
+@media (max-width: 576px) {
+    .nav-bar{
+        background-color: var(--negro);
+        flex-direction: column;
+        height: 5rem;
+        
+    }
+    .menu-ham{
+        display: block;
+    }
+    nav{
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+    }
+    nav a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: .1rem solid var(--claro);
+        width: 100%;
+        padding: 2rem 0;
+        font-size: 2rem;
+    }
+    .navCelular{
+        display: flex;
+        flex-direction: column;
+        width: 40rem;
+        background-color: var(--negro);
+        margin-top: -.5rem;
+
+    }
+  }
 
 
 
@@ -125,7 +166,7 @@ nav a:hover{
         background-color: var(--claro2);
     }
     100%{
-        background-color: rgb(18, 18, 19);
+        background-color: var(--negro);
     }
 }
 .estrellasP{
@@ -145,12 +186,16 @@ nav a:hover{
 }
 @keyframes estrellasP {
     0%{
-        transform: rotate(45deg) scale(2, 2);
+        transform: rotate(45deg) scale(3, 3);
         filter: blur(0);
+    }
+
+    75%{
+         filter:  blur(1.5px);
     }
     100%{
         transform: rotate(90deg) scale(1, 1);
-        filter: blur(3);
+       
     }
 }
 .estrellasG{
@@ -172,18 +217,18 @@ nav a:hover{
 @keyframes estrellasG {
     0%{
         transform: rotate(0);
-        filter: blur(1.5px);
+        filter:  hue-rotate(1deg) blur(1.5px);
     }
     100%{
-        transform: rotate(45deg) scale(2, 2);
-        filter: blur(0);
+        transform: rotate(45deg) scale(4, 4);
+        filter:  hue-rotate(360deg) blur(0);
     }
 }
 .hero__titulo{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(4, 4);
+    transform: translate(-50%, -50%);
     animation-name: titulos;
     animation-delay: 1s;
     animation-duration: .5s;
@@ -196,12 +241,8 @@ nav a:hover{
 }
 @keyframes titulos {
     0%{
-        filter: blur(5px);
-        
-    }
-    25%{
-        
-    }    
+        filter: blur(5px);   
+    }   
     50%{
         filter: blur(0);
     }
@@ -211,6 +252,7 @@ nav a:hover{
 }
 .hero__titulo h1, h2{
     color: var(--transparente);
+    font-size: 6rem;
     text-shadow: -.2rem 0 0 var(--transparente);
     animation-name: titulosH;
     animation-delay: 1s;
@@ -228,7 +270,7 @@ nav a:hover{
     }
     100%{
         color: var(--claro);
-        text-shadow: .2rem 0 0 var(--claro2);
+        text-shadow: .2rem 0 0 var(--obscuro);
     }
 }
 
@@ -244,6 +286,48 @@ nav a:hover{
     font-weight: bold;
     padding: .5rem 1rem;
     transition: .3s background-color ease;
-}.btn_cv:hover{
+}
+.btn_cv:hover{
     background-color: var(--claro);
+}
+.flecha{
+    position: absolute;
+    transform: translate(-50%, -75%);
+    top: 90%;
+    left: 50%;
+    font-size: 5rem;
+    color: var(--transparente);
+    z-index: 9;
+    height: 5rem;
+    width: 5rem;
+    animation-name: flecha;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 10s;
+}
+@keyframes flecha {
+    0%{
+        color: var(--claro);
+        transform: translate(-50%, -75%);
+        filter: blur(5px);
+    }
+    100%{
+        transform: translate(-50%, -25%);
+        filter: blur(0);
+    }
+}
+/*media q hero*/
+@media (max-width: 576px) {
+    .hero__titulo{
+        transform: translate(-50%, -50%) scale(1.5, 1.5);
+        top: 50%;
+        left: 50%;
+    }
+    .hero__titulo h1{
+        font-size: 3rem;
+    }
+    .hero__titulo h2{
+        font-size: 2rem;
+        text-align: center;
+    }
 }

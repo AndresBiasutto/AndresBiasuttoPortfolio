@@ -32,12 +32,19 @@ body {
     min-height: 100%;
     font-size: 1.6rem;
     font-family: var(--fuenteP);
-    background-color: #062A40;
+    background-color: var(--claro2);
 }
 h1{
     line-height: 0;
     font-family: var(--fuenteH);
     text-align: center;
+}
+h2{
+    font-size: 6rem;
+    background-color: var(--claro2);
+    color: var(--obscuro2);
+    padding: .3rem .2rem;
+    margin: 1rem 0;
 }
 h2,h3,h4{
     line-height: 1;
@@ -67,8 +74,15 @@ i{
     font-size: 2.5rem;
     margin: .5rem;
 }
-
-
+section{
+    padding: 5% 5%;
+    height: 100vh;
+}
+.seccion{
+    background-color: var(--obscuro2);
+    height: 100%;
+    border-radius: 1rem;
+}
 
 /*NAV-BAR*/
 
@@ -82,7 +96,7 @@ i{
     background-color: var(--transparente);
     width: 100%;
     position: fixed;
-    padding: 0 10%;
+    padding: 0 5%;
     z-index: 10;
 }
 nav{
@@ -183,6 +197,8 @@ nav a:hover{
     animation-iteration-count: infinite;
     animation-fill-mode: backwards;
     animation-direction: alternate;
+    pointer-events: none;
+    user-select: none;
 }
 @keyframes estrellasP {
     0%{
@@ -213,6 +229,8 @@ nav a:hover{
     animation-fill-mode: backwards;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
+    pointer-events: none;
+    user-select: none;
 }
 @keyframes estrellasG {
     0%{
@@ -250,9 +268,10 @@ nav a:hover{
           
     }
 }
-.hero__titulo h1, h2{
+.hero__titulo h1, .hero__titulo h2{
+    background-color: var(--transparente);
     color: var(--transparente);
-    font-size: 6rem;
+    font-size: 8rem;
     text-shadow: -.2rem 0 0 var(--transparente);
     animation-name: titulosH;
     animation-delay: 1s;
@@ -263,6 +282,10 @@ nav a:hover{
     animation-duration: .5s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
+}
+.hero__titulo h2{
+font-size: 4rem;
+text-align: center;
 }
 @keyframes titulosH {
     0%{
@@ -279,16 +302,38 @@ nav a:hover{
     transform: translate(-50%, -50%);
     top: 75%;
     left: 50%;
-    border: .3rem solid var(--resaltado);
+    border: .3rem solid var(--transparente);
     border-radius: 1rem;
-    color: var(--resaltado);
+    color: var(--transparente);
     background-color: var(--transparente);
     font-weight: bold;
     padding: .5rem 1rem;
     transition: .3s background-color ease;
+    animation-name: boton;
+
+    animation-duration: .5s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    animation-delay: 1s;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
 }
+@keyframes boton {
+    0%{
+        border: .3rem solid var(--transparente);
+        color: var(--transparente);
+    }
+    100%{
+        border: .3rem solid var(--resaltado);
+        color: var(--resaltado);
+    }
+}
+
 .btn_cv:hover{
     background-color: var(--claro);
+    cursor: pointer;
 }
 .flecha{
     position: absolute;
@@ -320,14 +365,61 @@ nav a:hover{
 @media (max-width: 576px) {
     .hero__titulo{
         transform: translate(-50%, -50%) scale(1.5, 1.5);
+        width: 100%;
         top: 50%;
         left: 50%;
     }
     .hero__titulo h1{
-        font-size: 3rem;
+        font-size: 4rem;
     }
     .hero__titulo h2{
         font-size: 2rem;
         text-align: center;
     }
+}
+@media (max-width: 992px){
+    .hero__titulo h1{
+        font-size: 4rem;
+    }
+    .hero__titulo h2{
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+/*ABOUT*/
+
+.about__seccion{
+    display: flex;
+}
+
+.about__seccion__retrato {
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: lighten;
+    
+}
+.about__seccion__retrato img{
+    height: 100%;
+    margin-bottom: -3rem;
+}
+.about__seccion__me{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+.about__seccion__me__sobreMi{
+    display: flex;
+    flex-direction: column;
+
+}
+.about__seccion__me__formation{
+    display: flex;
+    flex-direction: column;
 }
